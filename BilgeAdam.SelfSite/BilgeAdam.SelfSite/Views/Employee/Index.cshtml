@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BilgeAdam.SelfSite.Models.EmployeeViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Çalışanlar</h2>
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Adı Soyadı</th>
+                    <th>Ülke</th>
+                    <th>Şehir</th>
+                    <th>İşe Giriş Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr @if (!emp.HasHireDate) { <text> class="table-danger" </text> }>
+                        <td>@emp.FullName</td>
+                        <td>@emp.Country</td>
+                        <td>@emp.City</td>
+                        <td>@emp.FormattedHireDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/BilgeAdam.SelfSite/.vs
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite/bin/Debug/netcoreapp2.1
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite/obj
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.Contracts/bin/Debug/netcoreapp2.1
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.Contracts/obj
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.DTOs/bin/Debug/netcoreapp2.1
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.DTOs/obj
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.EFServices/bin/Debug/netcoreapp2.1
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.EFServices/obj
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.SQLServices/bin/Debug/netcoreapp2.1
+/BilgeAdam.SelfSite/BilgeAdam.SelfSite.SQLServices/obj
