@@ -1,9 +1,10 @@
 ﻿using BilgeAdam.SelfSite.Contracts;
-using BilgeAdam.SelfSite.EFServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace BilgeAdam.SelfSite
 {
@@ -12,7 +13,9 @@ namespace BilgeAdam.SelfSite
         public void ConfigureServices(IServiceCollection services)
         {
             //Dependency Injection LifeTime Scope
-            services.AddScoped<IEmployeeService, EmployeeService>();
+            //TODO: http://umutluoglu.com/2017/01/asp-net-core-dependency-injection/
+            services.AddScoped<IEmployeeService, EFServices.EmployeeService>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -7,6 +7,12 @@ namespace BilgeAdam.SelfSite.EFServices
 {
     public class EmployeeService : IEmployeeService
     {
+        public EmployeeService()
+        {
+            RequestCount = Guid.NewGuid();
+        }
+        public Guid RequestCount { get; set; }
+
         public List<EmployeeDTO> GetEmployees()
         {
             var a = "EF bağlantısı";
