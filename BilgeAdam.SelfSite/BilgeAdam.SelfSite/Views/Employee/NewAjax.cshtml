@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "New";
+}
+
+<h2>Yeni Personel (YH)</h2>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label>Adı Soyadı</label>
+            <input type="text" class="form-control" id="fn" />
+        </div>
+        <div class="form-group">
+            <label>Ülke</label>
+            <select class="form-control" id="country">
+                <option value="1">Türkiye</option>
+                <option value="2">İsveç</option>
+                <option value="3">Rusya</option>
+                <option value="4">Ukrayna</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Şehir</label>
+            <select class="form-control" id="city">
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">Stockholm</option>
+                <option value="4">Malmö</option>
+                <option value="5">Moskova</option>
+                <option value="6">Saint Petersburg</option>
+                <option value="7">Kiev</option>
+                <option value="7">Poltava</option>
+                <option value="7">Mikolayev</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>İşe Giriş Tarihi</label>
+            <input type="date" class="form-control" id="date">
+        </div>
+        <button id="btnSave" type="button" class="btn btn-success">Kaydet</button>
+    </div>
+</div>
+
+@section js {
+    <script>
+        $(document).ready(function () {
+            $("#btnSave").click(function () {
+                var obj = {
+                    fullName: $("#fn").val(),
+                    city: $("#city option:selected").text(),
+                    country: $("#country option:selected").text(),
+                    hireDate: $("#date").val()
+                }
+                $.ajax({
+                    method: "post",
+                    data: obj,
+                    url: '@Url.Action("Save", "Employee")'
+                }).done(function () {
+                    alert("Başarılı");
+                    window.location.href = '@Url.Action("Index", "Employee")';
+                });
+            });
+            
+        });
+    </script>
+}

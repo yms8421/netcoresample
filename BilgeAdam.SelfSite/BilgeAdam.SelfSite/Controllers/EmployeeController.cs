@@ -19,7 +19,6 @@ namespace BilgeAdam.SelfSite.Controllers
             var service2 = httpContext.HttpContext.RequestServices.GetService(typeof(IEmployeeService));
             var service3 = httpContext.HttpContext.RequestServices.GetService(typeof(IEmployeeService));
             var service4 = httpContext.HttpContext.RequestServices.GetService(typeof(IEmployeeService));
-
         }
         public IActionResult Index()
         {
@@ -37,7 +36,7 @@ namespace BilgeAdam.SelfSite.Controllers
 
         public IActionResult New()
         {
-            return View();
+            return View("NewAjax");
         }
 
         public IActionResult Save(EmployeeViewModel data)

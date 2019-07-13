@@ -1,0 +1,47 @@
+﻿@model BilgeAdam.SelfSite.Models.EmployeeViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "New";
+}
+
+<h2>Yeni Personel (TAG)</h2>
+<form action="@Url.Action("Save", "Employee")" method="post">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Adı Soyadı</label>
+                <input asp-for="FullName" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Ülke</label>
+                <select class="form-control" asp-for="Country">
+                    <option value="Türkiye">Türkiye</option>
+                    <option value="2">İsveç</option>
+                    <option value="3">Rusya</option>
+                    <option value="4">Ukrayna</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Şehir</label>
+                <select class="form-control" asp-for="City">
+                    <option value="İstanbul">İstanbul</option>
+                    <option value="2">Ankara</option>
+                    <option value="3">Stockholm</option>
+                    <option value="4">Malmö</option>
+                    <option value="5">Moskova</option>
+                    <option value="6">Saint Petersburg</option>
+                    <option value="7">Kiev</option>
+                    <option value="7">Poltava</option>
+                    <option value="7">Mikolayev</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>İşe Giriş Tarihi</label>
+                <input type="date" class="form-control" asp-for="HireDate">
+            </div>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a class="btn btn-danger" asp-action="Index" asp-controller="Employee">Geri</a>
+        </div>
+    </div>
+</form>
+
