@@ -1,0 +1,52 @@
+﻿@model BilgeAdam.SelfSite.Models.EmployeeViewModel
+@{
+    ViewData["Title"] = "New";
+    var countries = new List<SelectListItem>
+    {
+        new SelectListItem("Türkiye", "Türkiye"),
+        new SelectListItem("İsveç", "İsveç"),
+        new SelectListItem("Rusya", "3"),
+        new SelectListItem("Ukrayna", "4"),
+    };
+
+    var cities = new List<SelectListItem>
+    {
+        new SelectListItem("İstanbul", "İstanbul"),
+        new SelectListItem("Ankara", "2"),
+        new SelectListItem("Stockholm", "Stockholm"),
+        new SelectListItem("Malmö", "4"),
+        new SelectListItem("Moskova", "5"),
+        new SelectListItem("Saint Petersburg", "6"),
+        new SelectListItem("Kiev", "7"),
+        new SelectListItem("Poltava", "8"),
+        new SelectListItem("Mikolayev", "9"),
+    };
+}
+
+<h2>Yeni Personel</h2>
+
+<form action="@Url.Action("Save", "Employee")" method="post">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Adı Soyadı</label>
+                @Html.TextBoxFor(i => i.FullName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Ülke</label>
+                @Html.DropDownListFor(i => i.Country, countries, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Şehir</label>
+                @Html.DropDownListFor(i => i.City, cities, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>İşe Giriş Tarihi</label>
+                @Html.TextBoxFor(i => i.HireDate, new { @class = "form-control", type = "date" })
+            </div>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a class="btn btn-danger" href="@Url.Action("Index", "Employee")">Geri</a>
+        </div>
+    </div>
+</form>
+

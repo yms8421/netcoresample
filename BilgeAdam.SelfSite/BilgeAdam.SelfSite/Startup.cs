@@ -14,7 +14,7 @@ namespace BilgeAdam.SelfSite
         {
             //Dependency Injection LifeTime Scope
             //TODO: http://umutluoglu.com/2017/01/asp-net-core-dependency-injection/
-            services.AddScoped<IEmployeeService, EFServices.EmployeeService>();
+            services.AddSingleton<IEmployeeService, EFServices.EmployeeService>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

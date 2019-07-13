@@ -1,4 +1,5 @@
 ﻿using BilgeAdam.SelfSite.Contracts;
+using BilgeAdam.SelfSite.DTOs;
 using BilgeAdam.SelfSite.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,25 @@ namespace BilgeAdam.SelfSite.Controllers
             }).ToList();
 
             return View(employees);
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public IActionResult Save(EmployeeViewModel data)
+        {
+            //TODO: bkz : AutoMapper kütüphanesi
+            var dto = new EmployeeDTO
+            {
+                City = data.City,
+                Country = data.Country,
+                FullName = data.FullName,
+                HireDate = data.HireDate
+            };
+            service.AddEmployee(dto);
+            return RedirectToAction("Index");
         }
     }
 }

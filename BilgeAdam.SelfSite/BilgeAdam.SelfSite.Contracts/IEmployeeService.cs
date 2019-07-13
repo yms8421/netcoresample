@@ -8,5 +8,6 @@ namespace BilgeAdam.SelfSite.Contracts
     {
         List<EmployeeDTO> GetEmployees();
         Guid RequestCount { get; set; }
+        void AddEmployee(EmployeeDTO dto);
     }
 }
